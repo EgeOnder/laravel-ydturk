@@ -29,12 +29,12 @@
                     <div class="flex-wrap-movielist">
                         @foreach ($movies['results'] as $movie)
                             <div class="movie-item-style-2 movie-item-style-1">
-                                <a href="#"><img src="{{ 'https://image.tmdb.org/t/p/w500/' . $movie['poster_path'] }}" alt="poster" style="height: 260px; width: 170px;"></a>
+                                <a href="{{ route('filmler.show', $movie['id']) }}"><img src="{{ 'https://image.tmdb.org/t/p/w500/' . $movie['poster_path'] }}" alt="poster" style="height: 260px; width: 170px;"></a>
                                 <div class="hvr-inner">
-                                    <a  href="#"> İzle <i class="ion-android-arrow-dropright"></i> </a>
+                                    <a  href="{{ route('filmler.show', $movie['id']) }}"> İzle <i class="ion-android-arrow-dropright"></i> </a>
                                 </div>
                                 <div class="mv-item-infor">
-                                    <h6><a href="#">{{ $movie['title'] }}</a></h6>
+                                    <h6><a href="{{ route('filmler.show', $movie['id']) }}">{{ $movie['title'] }}</a></h6>
                                     <p class="rate"><i class="ion-android-star"></i><span>{{ $movie['vote_average'] }}</span> /10</p>
                                 </div>
                             </div>

@@ -25,27 +25,6 @@ class MoviesController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
      * Display the specified resource.
      *
      * @param  int  $id
@@ -53,7 +32,12 @@ class MoviesController extends Controller
      */
     public function show($id)
     {
-        //
+        $movie = Http::get('https://api.themoviedb.org/3/movie/' . $id  . '?api_key=' . config('services.tmdb.token') . '&language=tr-TR&append_to_response=credits,images,videos')
+            ->json();
+
+        dump($movie);
+
+        return view('film-show')->with('movie', $movie);
     }
 
     /**
