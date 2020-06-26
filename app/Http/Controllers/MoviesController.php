@@ -18,9 +18,13 @@ class MoviesController extends Controller
         $movies = Http::get('https://api.themoviedb.org/3/movie/top_rated?api_key=' . config('services.tmdb.token') . '&language=tr-TR&page=' . $id)
             ->json();
 
+        $populerShows = Http::get('https://api.themoviedb.org/3/tv/popular?api_key=' . config('services.tmdb.token') . '&language=tr-TR')
+            ->json()['results'];
+
         return view('film', [
             'movies' => $movies,
-            'id' => $id
+            'id' => $id,
+            'popularShows' => $populerShows
         ]);
     }
 
@@ -35,42 +39,12 @@ class MoviesController extends Controller
         $movie = Http::get('https://api.themoviedb.org/3/movie/' . $id  . '?api_key=' . config('services.tmdb.token') . '&language=tr-TR&append_to_response=credits,images,videos')
             ->json();
 
-        dump($movie);
+        $populerShows = Http::get('https://api.themoviedb.org/3/tv/popular?api_key=' . config('services.tmdb.token') . '&language=tr-TR')
+            ->json()['results'];
 
-        return view('film-show')->with('movie', $movie);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        return view('film-show', [
+            'movie' => $movie,
+            'popularShows' => $populerShows
+        ]);
     }
 }

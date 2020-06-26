@@ -10,32 +10,22 @@ class TVShowsController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        return view('dizi');
-    }
+        $shows = Http::get('https://api.themoviedb.org/3/tv/top_rated?api_key=' . config('services.tmdb.token') . '&language=tr-TR&page=' . $id)
+            ->json();
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+        $populerShows = Http::get('https://api.themoviedb.org/3/tv/popular?api_key=' . config('services.tmdb.token') . '&language=tr-TR')
+            ->json()['results'];
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+        return view('dizi', [
+            'popularShows' => $populerShows,
+            'id' => $id,
+            'shows' => $shows
+        ]);
     }
 
     /**
@@ -46,40 +36,15 @@ class TVShowsController extends Controller
      */
     public function show($id)
     {
-        //
-    }
+        $show = Http::get('https://api.themoviedb.org/3/tv/' . $id  . '?api_key=' . config('services.tmdb.token') . '&language=tr-TR&append_to_response=credits,images,videos')
+            ->json();
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+        $populerShows = Http::get('https://api.themoviedb.org/3/tv/popular?api_key=' . config('services.tmdb.token') . '&language=tr-TR')
+            ->json()['results'];
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        return view('dizi-show', [
+            'show' => $show,
+            'popularShows' => $populerShows
+        ]);
     }
 }

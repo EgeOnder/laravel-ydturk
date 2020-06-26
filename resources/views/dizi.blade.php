@@ -24,27 +24,38 @@
             <div class="row ipad-width">
                 <div class="col-md-8 col-sm-12 col-xs-12">
                     <div class="topbar-filter">
-                        <p>Toplamda <span>x dizi</span> bulundu</p>
+                        <p>Toplamda <span>{{ $shows['total_results'] }} dizi</span> bulundu</p>
                     </div>
                     <div class="flex-wrap-movielist">
+                        @foreach ($shows['results'] as $show)
                             <div class="movie-item-style-2 movie-item-style-1">
-                                <a href="#"><img src="{{ asset('/images/elite/poster1.png') }}" alt="" style="height: 260px; width: 170px;"></a>
+                                <a href="{{ route('diziler.show', $show['id']) }}"><img src="{{ 'https://image.tmdb.org/t/p/w500/' . $show['poster_path'] }}" alt="poster" style="height: 260px; width: 170px;"></a>
                                 <div class="hvr-inner">
-                                    <a  href="#"> İzle <i class="ion-android-arrow-dropright"></i> </a>
+                                    <a  href="{{ route('diziler.show', $show['id']) }}"> İzle <i class="ion-android-arrow-dropright"></i> </a>
                                 </div>
                                 <div class="mv-item-infor">
-                                    <h6><a href="#">Elite</a></h6>
-                                    <p class="rate"><i class="ion-android-star"></i><span>7.6</span> /10</p>
+                                    <h6><a href="{{ route('diziler.show', $show['id']) }}">{{ $show['name'] }}</a></h6>
+                                    <p class="rate"><i class="ion-android-star"></i><span>{{ $show['vote_average'] }}</span> /10</p>
                                 </div>
                             </div>
+                        @endforeach
                     </div>
                     <div class="topbar-filter">
                         <label>Sayfa</label>
                         
                         <div class="pagination2">
-                            <span> 1/1</span>
-                            <a class="active" href="#">1</a>
-                            <a href="#"><i class="ion-arrow-right-b"></i></a>
+                            <span>{{ $id }} / {{ $shows['total_pages'] }}</span>
+                            @if ($id > 1)
+                                <a href="{{ route('diziler', $id - 1) }}">{{ $id - 1 }}</a> 
+                                <a class="active">{{ $id }}</a> 
+                                ... 
+                                <a href="{{ route('diziler', $shows['total_pages']) }}">{{ $shows['total_pages'] }}</a>
+                            @else
+                                <a class="active">{{ $id }}</a> 
+                                ... 
+                                <a href="{{ route('diziler', $shows['total_pages']) }}">{{ $shows['total_pages'] }}</a>
+                            @endif
+                            <a href="{{ route('diziler', $id + 1) }}"><i class="ion-arrow-right-b"></i></a>
                         </div>
                     </div>
                 </div>
@@ -92,7 +103,7 @@
                             </form>
                         </div>
                         <div class="ads">
-                            <img src="{{ asset('/images/uploads/ads1.png') }}" alt="">
+                            <img src="{{ asset('/images/uploads/ads1.png') }}" alt="ad">
                         </div>
                     </div>
                 </div>

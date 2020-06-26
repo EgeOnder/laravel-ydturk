@@ -5675,17 +5675,7 @@ ul {
 }
 /*movie single hero(elite deneme bg)*/
 .mv-single-hero {
-  background: url('/images/elite/elite-bg.jpg') no-repeat;
-  height: 598px;
-}
-
-.mv-single-lcdp {
-  background: url('/images/lcdp/lcdp-bg.jpg') no-repeat;
-  height: 598px;
-}
-
-.mv-single-education {
-  background: url('/images/sex-education/education-bg.jpg') no-repeat;
+  background: url('/images/uploads/slider-bg.jpg') no-repeat;
   height: 598px;
 }
 /*series single hero*/
@@ -6595,6 +6585,10 @@ ul {
 }
 .userrate.last {
   border-bottom: 1px transparent;
+}
+.search-results {
+  position: absolute;
+  font-size: small;
 }
 .celebrity-form {
   padding: 0;

@@ -18,4 +18,5 @@ Route::get('/', 'IndexController@index')->name('index');
 Route::get('/filmler/sayfa/{pageId}', 'MoviesController@index')->name('filmler');
 Route::get('/film/{pageId}', 'MoviesController@show')->name('filmler.show');
 
-Route::get('/diziler', 'TVShowsController@index')->name('diziler');
+Route::get('/diziler/sayfa/{pageId}', 'TVShowsController@index')->name('diziler');
+Route::get('/dizi/{pageId}', 'TVShowsController@show')->name('diziler.show');

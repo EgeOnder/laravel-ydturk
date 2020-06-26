@@ -16,6 +16,7 @@
 	<link rel="stylesheet" href="{{ asset('/css/plugins.css') }}">
 	<link rel="stylesheet" href="{{ asset('/css/style.css') }}">
 
+	<livewire:styles>
 </head>
 <body>
     
@@ -33,5 +34,6 @@
 <script src="{{ asset('js/plugins.js') }}"></script>
 <script src="{{ asset('js/plugins2.js') }}"></script>
 <script src="{{ asset('js/custom.js') }}"></script>
+<livewire:scripts>
 </body>
 </html>

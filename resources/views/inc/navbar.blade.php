@@ -1,23 +1,23 @@
     <div class="login-wrapper" id="login-content">
 	    <div class="login-content">
 			<a href="#" class="close">x</a>
-			<h3>Giriş</h3>
+			<h3>GİRİŞ</h3>
 			<form method="post" action="#">
 				<div class="row">
 					 <label for="username">
 						Kullanıcı Adı:
-						<input type="text" name="username" id="username" placeholder="Kullanıcı Adı" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{8,20}$" required="required" />
+						<input type="text" name="username" id="username" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{8,20}$" required="required" />
 					</label>
 				</div>
 				<div class="row">
 					<label for="password">
 						Şifre:
-						<input type="password" name="password" id="password" placeholder="******" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required="required" />
+						<input type="password" name="password" id="password" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required="required" />
 					</label>
 				</div>
 				<div class="row">
 					<div class="remember">
-                        <input type="checkbox" name="remember" value="Remember me"><span>Beni hatırla</span>
+                        <input type="checkbox" name="remember" value="Remember me"><span style="margin-left: 30px;">Beni hatırla</span>
                         <a href="#">Şifremi unuttum</a>
                     </div>
 				</div>
@@ -36,25 +36,25 @@
 				<div class="row">
 					<label for="username-2">
 						Kullanıcı Adı:
-						<input type="text" name="username" id="username-2" placeholder="Kullanıcı Adı" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{8,20}$" required="required" />
+						<input type="text" name="username" id="username-2" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{8,20}$" required="required" />
 					</label>
 				</div>
 				<div class="row">
 					<label for="email-2">
 						E-posta:
-                        <input type="password" name="email" id="email-2" placeholder="E-posta" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required="required" />
+                        <input type="password" name="email" id="email-2" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required="required" />
 					</label>
 				</div>
 				<div class="row">
 					<label for="password-2">
 						Şifre:
-						<input type="password" name="password" id="password-2" placeholder="******" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required="required" />
+						<input type="password" name="password" id="password-2" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required="required" />
 					</label>
 				</div>
 				<div class="row">
 					<label for="repassword-2">
 						Şifreni Tekrar Yaz:
-						<input type="password" name="password" id="repassword-2" placeholder="******" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required="required" />
+						<input type="password" name="password" id="repassword-2" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required="required" />
 				    </label>
 				</div>
 				 <div class="row">
@@ -84,19 +84,17 @@
 							<a href="#page-top"></a>
 						</li>
 						<li class="first">
-							<a class="btn btn-default lv1" href="{{ route('diziler') }}">
-							diziler
+							<a class="btn btn-default lv1" href="{{ route('diziler', 1) }}">
+							DİZİLER
 							</a>
 						</li>
 						<li class="first">
 							<a class="btn btn-default lv1" href="{{ route('filmler', 1) }}">
-							filmler
+							FİLMLER
 							</a>
 						</li>
 					</ul>
-					<div class="top-search">
-						<input type="text" placeholder="Ara">
-					</div>
+					<livewire:search-dropdown>
 					<ul class="nav navbar-nav flex-child-menu menu-right">      
 						<li class="loginLink"><a href="#">Giriş yap</a></li>
 						<li class="btn signupLink"><a href="#">Kayıt ol</a></li>
