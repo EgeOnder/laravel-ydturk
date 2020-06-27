@@ -3,11 +3,23 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use Illuminate\Support\Facades\Http;
 
 class SearchDropdown extends Component
 {
+    public $search = '';
+    
     public function render()
     {
-        return view('livewire.search-dropdown');
+        $searchResults = [];
+
+        if(strlen($this->search) >= 2) {
+            $searchResults = Http::get('https://api.themoviedb.org/3/search/multi?api_key=' . config('services.tmdb.token') . '&language=tr-TR&query=' . $this->search)
+            ->json()['results'];
+        }
+
+        return view('livewire.search-dropdown', [
+            'searchResults' => collect($searchResults)->take(7)
+        ]);
     }
 }

@@ -7954,6 +7954,7 @@ header .top-search {
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
   border-radius: 20px;
+  width: 20vw;
 }
 header .top-search select,
 header .top-search input {
