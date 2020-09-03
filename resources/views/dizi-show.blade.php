@@ -4,7 +4,7 @@
 
     @include('inc.navbar')
 
-    <div class="hero mv-single-hero" style="">
+    <div class="hero mv-single-hero" style="background: url('{{ 'https://image.tmdb.org/t/p/original/' . $show['backdrop_path'] }}') !important; width: 100%;">
         <div class="container">
             <div class="row">
                 
@@ -130,9 +130,14 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-4 col-xs-12 col-sm-12">
+                                                <br>
                                                 <div class="sb-it">
                                                     <h6>Yönetmen: </h6>
-                                                    <p><a href="#">Dani de la Orden,</a> <a href="#">Ramón Salazar</a></p>
+                                                    <p>
+                                                        @foreach ($directors as $director)
+                                                            <a href="#">{{ $director['name'] }}, </a>
+                                                        @endforeach
+                                                    </p>
                                                 </div>
                                                 <div class="sb-it">
                                                     <h6>Tür:</h6>

@@ -15,7 +15,6 @@
                                             </a>
                                         </h1>
                                         <div class="social-btn">
-                                            <a href="https://www.youtube.com/embed/0GzqnOEVpuo" class="parent-btn fancybox-media"><i class="ion-play"></i> Fragmanı İzle</a>
                                             <a href="" class="parent-btn"><i class="ion-heart"></i> Favorilere Ekle</a>
                                         </div>
                                         <div class="mv-details">

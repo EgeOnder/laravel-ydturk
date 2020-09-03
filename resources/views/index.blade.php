@@ -11,7 +11,7 @@
             <div class="col-md-12">
                 <div class="title-hd">
                     <h2>POPÜLER FİLMLER</h2>
-                    <a href="{{ route('filmler', 1) }}" class="viewall">Tümünü gör <i class="ion-ios-arrow-right"></i></a>
+                    <a href="{{ route('filmler.popular', 1) }}" class="viewall">Tümünü gör <i class="ion-ios-arrow-right"></i></a>
                 </div>
                 <div class="tabs">
                     <div class="tab-content">
@@ -43,7 +43,7 @@
                 </div>
                 <div class="title-hd">
                     <h2>POPÜLER DİZİLER</h2>
-                    <a href="{{ route('diziler', 1) }}" class="viewall">Tümünü gör <i class="ion-ios-arrow-right"></i></a>
+                    <a href="{{ route('diziler.popular', 1) }}" class="viewall">Tümünü gör <i class="ion-ios-arrow-right"></i></a>
                 </div>
                 <div class="tabs">
                     <div class="tab-content">

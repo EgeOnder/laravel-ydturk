@@ -42,9 +42,39 @@ class MoviesController extends Controller
         $populerShows = Http::get('https://api.themoviedb.org/3/tv/popular?api_key=' . config('services.tmdb.token') . '&language=tr-TR')
             ->json()['results'];
 
+        $directors = array();
+        foreach($movie['credits']['crew'] as $director) {
+            if($director['job'] == 'Director') {
+                array_push($directors, $director);
+            }
+        }
+
         return view('film-show', [
             'movie' => $movie,
-            'popularShows' => $populerShows
+            'popularShows' => $populerShows,
+            'directors' => $directors
+        ]);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function popular($id)
+    {
+
+        $populerMovies = Http::get('https://api.themoviedb.org/3/movie/popular?api_key=' . config('services.tmdb.token') . '&language=tr-TR&page=' . $id)
+            ->json();
+
+        $populerShowsFooter = Http::get('https://api.themoviedb.org/3/tv/popular?api_key=' . config('services.tmdb.token') . '&language=tr-TR')
+            ->json()['results'];
+
+        return view('film-popular', [
+            'movies' => $populerMovies,
+            'popularShows' => $populerShowsFooter,
+            'id' => $id
         ]);
     }
 }
