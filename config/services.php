@@ -34,4 +34,8 @@ return [
         'token' => env('TMDB_TOKEN'),
     ],
 
+    'quotes' => [
+        'token' => env('QUOTES_TOKEN'),
+    ],
+
 ];

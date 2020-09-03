@@ -3,6 +3,8 @@
 namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Support\Facades\Http;
+use Stichoza\GoogleTranslate\GoogleTranslate;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -52,7 +54,21 @@ class Handler extends ExceptionHandler
     {
         if($this->isHttpException($exception)) {
             if($exception->getStatusCode() == 404) {
-                return response()->view('errors.404');
+                $client = new \GuzzleHttp\Client();
+
+                $quote = $client->get('http://movie-quotes-app.herokuapp.com/api/v1/quotes', [
+                    'headers' => [
+                        'Authorization' => 'Token token=' . config('services.quotes.token'),
+                    ],
+                ]);
+
+                $quote = json_decode($quote->getBody(), true)[rand(0, 19)]['content'];
+
+                $quote = GoogleTranslate::trans($quote, 'tr', 'en');
+
+                return response()->view('errors.404', [
+                    'quote' => $quote,
+                ]);
             }
         }
 
