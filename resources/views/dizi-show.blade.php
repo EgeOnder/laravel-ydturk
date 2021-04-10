@@ -35,11 +35,11 @@
                     <div class="movie-single-ct main-content">
                         <h1 class="bd-hd">{{ $show['name'] }} 
                             <span>
-                                {{ \Carbon\Carbon::parse($show['first_air_date'])->format('d M, Y') }}
+                                {{ $show['networks']['0']['name'] }}
                             </span>
                         </h1>
                         <div class="social-btn">
-                            <a href="#" class="parent-btn"><i class="ion-heart"></i> Favorilere Ekle</a>		
+                            <a href="#" class="parent-btn"><i class="ion-heart"></i> Favorilere Ekle</a>
                         </div>
                         <div class="movie-rate">
                             <div class="rate">
@@ -131,6 +131,7 @@
                                             </div>
                                             <div class="col-md-4 col-xs-12 col-sm-12">
                                                 <br>
+                                                @if ($directors != null)
                                                 <div class="sb-it">
                                                     <h6>Yönetmen: </h6>
                                                     <p>
@@ -139,27 +140,18 @@
                                                         @endforeach
                                                     </p>
                                                 </div>
+                                                @endif
                                                 <div class="sb-it">
                                                     <h6>Tür:</h6>
-                                                    <p><a href="#">Gizem, </a> <a href="#"> Gençlik</a></p>
+                                                    <p>
+                                                        @foreach ($genres as $genre)
+                                                            <a href="#">{{ $genre['name'] }}, </a>
+                                                        @endforeach
+                                                    </p>
                                                 </div>
                                                 <div class="sb-it">
                                                     <h6>Yayın Tarihi:</h6>
                                                     <p>{{ \Carbon\Carbon::parse($show['first_air_date'])->format('d M, Y') }}</p>
-                                                </div>
-                                                <div class="sb-it">
-                                                    <h6>Kısıtlamalar:</h6>
-                                                    <p>18+</p>
-                                                </div>
-                                                <div class="sb-it">
-                                                    <h6>Anahtar Kelimeler:</h6>
-                                                    <p class="tags">
-                                                        <span class="time"><a href="">lise</a></span>
-                                                        <span class="time"><a href="">gençlik</a></span>
-                                                        <span class="time"><a href="">ergen</a></span>
-                                                        <span class="time"><a href="">uyuşturucu</a></span>
-                                                        <span class="time"><a href="">gizem</a></span>
-                                                    </p>
                                                 </div>
                                                 <div class="ads">
                                                     <img src="{{ asset('/images/uploads/ads1.png') }}" alt="ad">

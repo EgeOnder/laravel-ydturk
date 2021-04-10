@@ -49,10 +49,16 @@ class TVShowsController extends Controller
             }
         }
 
+        $genres = array();
+        foreach($show['genres'] as $genre) {
+            array_push($genres, $genre);
+        }
+
         return view('dizi-show', [
             'show' => $show,
             'popularShows' => $populerShows,
-            'directors' => $directors
+            'directors' => $directors,
+            'genres' => $genres
         ]);
     }
 

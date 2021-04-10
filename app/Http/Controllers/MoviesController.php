@@ -49,10 +49,16 @@ class MoviesController extends Controller
             }
         }
 
+        $genres = array();
+        foreach($movie['genres'] as $genre) {
+            array_push($genres, $genre);
+        }
+
         return view('film-show', [
             'movie' => $movie,
             'popularShows' => $populerShows,
-            'directors' => $directors
+            'directors' => $directors,
+            'genres' => $genres
         ]);
     }
 

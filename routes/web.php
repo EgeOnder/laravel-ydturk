@@ -22,3 +22,5 @@ Route::get('/film/populer/sayfa/{pageId}', 'MoviesController@popular')->name('fi
 Route::get('/diziler/sayfa/{pageId}', 'TVShowsController@index')->name('diziler');
 Route::get('/dizi/{pageId}', 'TVShowsController@show')->name('diziler.show');
 Route::get('/dizi/populer/sayfa/{pageId}', 'TVShowsController@popular')->name('diziler.popular');
+
+Route::get('/kisi/{pageId}', 'PeopleController@show')->name('kisiler.show');

@@ -17,6 +17,8 @@
                                         @endif
                                         @if ($result['media_type'] == 'movie')
                                             <span style="display: inline-block;">{{ $result['title'] }}</span>
+                                        @elseif ($result['media_type'] == 'show')
+                                            <span style="display: inline-block;">{{ $result['original_name'] }}</span>
                                         @else
                                             <span style="display: inline-block;">{{ $result['name'] }}</span>
                                         @endif

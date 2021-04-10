@@ -10,7 +10,7 @@
                                     <div class="title-in">
                                         <h1>
                                             <a href="{{ route('diziler.show', $show['id']) }}" class="row">
-                                                {{ $show['name'] }}<br>
+                                                {{ $show['original_name'] }}<br>
                                                 <span>{{ \Carbon\Carbon::parse($show['first_air_date'])->format('d M, Y') }}</span>
                                             </a>
                                         </h1>
