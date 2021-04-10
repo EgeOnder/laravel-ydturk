@@ -51,7 +51,7 @@
                             <div class="row">
                                 <div class="slick-multiItem2">
                                     @foreach ($popularShows as $show)
-                                        @if ($show['origin_country'][0] != 'JP')
+                                        @if (empty($show['origin_country']) || $show['origin_country'][0] != 'JP' )
                                             <div class="slide-it">
                                                 <div class="movie-item">
                                                     <div class="mv-img">
