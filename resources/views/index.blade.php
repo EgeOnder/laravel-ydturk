@@ -26,7 +26,7 @@
                                                         <img src="{{ 'https://image.tmdb.org/t/p/w500/' . $movie['poster_path'] }}" alt="">
                                                     </div>
                                                     <div class="hvr-inner">
-                                                        <a href="{{ route('filmler.show', $movie['id']) }}"> İzle <i class="ion-android-arrow-dropright"></i> </a>
+                                                        <a href="{{ route('filmler.show', $movie['id']) }}"> İNCELE <i class="ion-android-arrow-dropright"></i> </a>
                                                     </div>
                                                     <div class="title-in">
                                                         <h6><a href="{{ route('filmler.show', $movie['id']) }}">{{ $movie['title'] }}</a></h6>
@@ -58,7 +58,7 @@
                                                         <img src="{{ 'https://image.tmdb.org/t/p/w500/' . $show['poster_path'] }}" alt="">
                                                     </div>
                                                     <div class="hvr-inner">
-                                                        <a href="{{ route('diziler.show', $show['id']) }}"> İzle <i class="ion-android-arrow-dropright"></i> </a>
+                                                        <a href="{{ route('diziler.show', $show['id']) }}"> İNCELE <i class="ion-android-arrow-dropright"></i> </a>
                                                     </div>
                                                     <div class="title-in">
                                                         <h6><a href="{{ route('diziler.show', $show['id']) }}">{{ $show['name'] }}</a></h6>

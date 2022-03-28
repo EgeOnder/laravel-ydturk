@@ -17,18 +17,16 @@
                 <div class="col-md-4 col-sm-12 col-xs-12">
                     <div class="movie-img sticky-sb">
                         <img src="{{ 'https://image.tmdb.org/t/p/w500/' . $movie['poster_path'] }}" alt="poster-bg">
-                        <div class="movie-btn">	
                         @if (count($movie['videos']['results']) > 0)
+                        <div class="movie-btn">	
+                        
                                 <div class="btn-transform transform-vertical red">
                                     <div><a href="{{ 'https://youtube.com/watch?v=' . $movie['videos']['results']['0']['key'] }}" class="item item-1 redbtn fancybox-media"> <i class="ion-play"></i> Fragmanı izle</a></div>
                                     <div><a href="{{ 'https://youtube.com/watch?v=' . $movie['videos']['results']['0']['key'] }}" class="item item-2 redbtn fancybox-media hvr-grow"><i class="ion-play"></i></a></div>
                                 </div>
-                        @endif
-                            <div class="btn-transform transform-vertical red">
-                                <div><a href="#" class="item item-1 yellowbtn fancybox-media"> <i class="ion-play"></i> FİLMİ İZLE</a></div>
-                                <div><a href="#" class="item item-2 yellowbtn fancybox-media hvr-grow"><i class="ion-play"></i></a></div>
-                            </div>
+                        
                         </div>
+                        @endif
                     </div>
                 </div>
                 <div class="col-md-8 col-sm-12 col-xs-12">

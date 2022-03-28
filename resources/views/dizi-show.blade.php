@@ -25,7 +25,7 @@
                                 </div>
                         @endif
                             <div class="btn-transform transform-vertical red">
-                                <div><a href="#" class="item item-1 yellowbtn"> <i class="ion-play"></i> DİZİYİ İZLE</a></div>
+                                <div><a href="#" class="item item-1 yellowbtn"> <i class="ion-play"></i> DİZİYİ İNCELE</a></div>
                                 <div><a href="#" class="item item-2 yellowbtn hvr-grow"><i class="ion-play"></i></a></div>
                             </div>
                         </div>

@@ -24,8 +24,8 @@
                                             </ul>
                                         </div>
                                         <div class="btn-transform transform-vertical">
-                                            <div><a href="{{ route('diziler.show', $show['id']) }}" class="item item-1 redbtn">izle</a></div>
-                                            <div><a href= "{{ route('diziler.show', $show['id']) }}" class="item item-2 redbtn hvrbtn">izle</a></div>
+                                            <div><a href="{{ route('diziler.show', $show['id']) }}" class="item item-1 redbtn">İNCELE</a></div>
+                                            <div><a href= "{{ route('diziler.show', $show['id']) }}" class="item item-2 redbtn hvrbtn">İNCELE</a></div>
                                         </div>		
                                     </div>
                                 </div>

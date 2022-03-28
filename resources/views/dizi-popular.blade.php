@@ -32,7 +32,7 @@
                             <div class="movie-item-style-2 movie-item-style-1">
                                 <a href="{{ route('diziler.show', $show['id']) }}"><img src="{{ 'https://image.tmdb.org/t/p/w500/' . $show['poster_path'] }}" alt="poster" style="height: 260px; width: 170px;"></a>
                                 <div class="hvr-inner">
-                                    <a  href="{{ route('diziler.show', $show['id']) }}"> İzle <i class="ion-android-arrow-dropright"></i> </a>
+                                    <a  href="{{ route('diziler.show', $show['id']) }}"> İNCELE <i class="ion-android-arrow-dropright"></i> </a>
                                 </div>
                                 <div class="mv-item-infor">
                                     <h6><a href="{{ route('diziler.show', $show['id']) }}">{{ $show['name'] }}</a></h6>
